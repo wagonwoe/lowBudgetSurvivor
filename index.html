@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="cz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>SwarmLowBudget</title>
+</head>
+<body>
+    <canvas id="gameCanvas" height="600" width="600"></canvas>
+    <div id="startScreen">
+        <h1>Low Budget Přeživší.io</h1>
+        <button id="startButton">Start!</button>
+    </div>
+    <div id="pauseMenu">
+        <h1>Hra pozastavena</h1>
+        <button id="resumeButton"> Pokračovat</button>
+        <button id="resetButton">Restart</button>
+    </div>
+    <div id="upgradeScreen">
+        <h1>Vyber si upgrade!</h1>
+        <h2>Tvá hra je mezitím pozastavena</h2>
+        <button id="upgradeButtonAS">Rychlost útoku++</button>
+        <button id="upgradeButtonMS">Rychlost++</button>
+        <button id="upgradeButtonHR">Životy++</button>
+    </div>
+    <div id="deathScreen">
+        <h1>GG, umřel jsi!</h1>
+        <form id="deathForm" action="">
+            <label for="playerName">Tvoje jméno: </label>
+            <input type="text" id="playerName" name="playerName">
+            <button type="submit">Restart</button>
+        </form>
+    </div>
+    <table>
+        <thead>
+            <th>Pořadí</th>
+            <th>Jméno</th>
+            <th>Skóre</th>
+        </thead>
+        <tbody id="scoreboard">
+        </tbody>
+    </table>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

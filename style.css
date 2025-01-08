@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: bisque;
+}
+
+#gameCanvas {
+    border: 5px solid black;
+    background-color: grey;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 8px solid bisque;
+    border-radius: 25px;
+}
+
+#startScreen {
+    color: white;
+    text-align: center;
+    padding-top: 150px;
+    display: block;
+    position: absolute;
+    height: 600px;
+    width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    border: 0px solid white;
+    border-radius: 17px;
+    z-index: 100;
+}
+
+#startButton {
+    background-color: white;
+    height: 50px;
+    width: 100px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 5px solid transparent;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+#pauseMenu {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1000;
+}
+
+#pauseMenu button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#upgradeScreen {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 100;
+}
+
+#upgradeScreen h2 {
+    color: grey;
+    font-size: medium;
+}
+
+#upgradeScreen button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#deathScreen {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1000;
+}
+
+#deathScreen input {
+    margin: 10px 0;
+    padding: 5px;
+    font-size: 16px;
+}
+
+#deathScreen button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+table {
+    background-color: antiquewhite;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    padding: 10px 20px;
+    border: 8px solid bisque;
+    border-radius: 25px;
+}
+
+td {
+    padding: 5px 15px;
+}
