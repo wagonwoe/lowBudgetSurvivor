@@ -37,6 +37,7 @@ export class GameDB {
                     {keyPath: "id", autoIncrement: true});
                 osSc.createIndex('skore','skore');
                 osSc.createIndex('jmenoInd', 'jmeno');
+                osSc.createIndex('datumInd', 'datum');
         }
     }
 
@@ -48,7 +49,7 @@ export class GameDB {
         };	
     }
 
-    insertScore(name, score) {
+    insertScore(name, score, date) {
         /// 1. vytvoreni transakce
         const trans = this.#db.transaction(this.#storeName, "readwrite");
         trans.oncomplete = () => {
@@ -57,12 +58,14 @@ export class GameDB {
         trans.onerror = (e) => {
             console.error('Chyba při transakci:', e.target.errorCode);
         };
-    
+
+        
+
         const osSc = trans.objectStore(this.#storeName);
-        const request = osSc.add({ jmeno: name, skore: score });
+        const request = osSc.add({ jmeno: name, skore: score, datum: date});
     
         request.onsuccess = () => {
-            console.log('Záznam úspěšně přidán:', { jmeno: name, skore: score });
+            console.log('Záznam úspěšně přidán:', { jmeno: name, skore: score, datum: date });
     }
 }
 
@@ -126,6 +129,10 @@ export class GameDB {
             
             td = document.createElement('td');
             td.innerHTML = r.skore;
+            tr.appendChild(td);
+
+            td = document.createElement('td');
+            td.innerHTML = r.datum;
             tr.appendChild(td);
             
             tbody.appendChild(tr);
