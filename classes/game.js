@@ -17,6 +17,7 @@ export class Game {
     this.score = 0;
     this.neededScore = 100;
     this.isPaused = false;
+    this.choosingUpgrade = false;
   }
 
   handleInput() {
@@ -37,7 +38,12 @@ export class Game {
       const y = Math.random() * this.canvas.height;
       this.enemies.push(new Enemy(x, y));
       this.lastSpawnTime = now;
-      this.spawnEnemyInterval -= 10;
+      if (this.spawnEnemyInterval <= 0) {
+        this.spawnEnemyInterval = 10
+      }else{
+        this.spawnEnemyInterval -= 10;
+      }
+      
     }
   }
 
@@ -102,18 +108,21 @@ export class Game {
     this.player.speed = 5;
     this.neededScore = 50
     this.spawnEnemyInterval = 1000;
+    this.choosingUpgrade = false;
   
     console.log("Hra byla resetována.");
   }
 
   showDeathScreen() {
     this.isPaused = true;
+    this.choosingUpgrade = true;
     const deathScreen = document.getElementById("deathScreen");
     deathScreen.style.display = "block";
   }
 
   showUpgradeScreen(){
     this.isPaused = true; 
+    this.choosingUpgrade = true;
     const upgradeScreen = document.getElementById("upgradeScreen");
     upgradeScreen.style.display = "block";
   }
@@ -122,6 +131,7 @@ export class Game {
     this.shotInterval -= 250;
     const upgradeScreen = document.getElementById("upgradeScreen");
     upgradeScreen.style.display = "none";
+    this.choosingUpgrade = false;
     this.isPaused = false; 
   }
 
@@ -129,6 +139,7 @@ export class Game {
     this.player.speed += 0.5;
     const upgradeScreen = document.getElementById("upgradeScreen");
     upgradeScreen.style.display = "none";
+    this.choosingUpgrade = false;
     this.isPaused = false; 
   }
 
@@ -136,6 +147,7 @@ export class Game {
     this.player.health += 30;
     const upgradeScreen = document.getElementById("upgradeScreen");
     upgradeScreen.style.display = "none";
+    this.choosingUpgrade = false;
     this.isPaused = false; 
   }
 
@@ -148,7 +160,7 @@ export class Game {
 
     if (this.score >= this.neededScore) {
       this.showUpgradeScreen();
-      this.neededScore += (this.neededScore/2);
+      this.neededScore += this.neededScore;
     }
 
     this.enemies.forEach((enemy) => {
